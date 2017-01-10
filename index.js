@@ -9,7 +9,7 @@ const { __
       , compose
       , curry
       , curryN
-      , join: joinR
+      , join
       , map
       , pipe
       , tap
@@ -42,13 +42,10 @@ const getFileContents = traverse(Task.of, readFile(__, 'utf-8'));
 const wrapWithCachePuts = compose(
   s => `$templateCache.puts('${s}');`,
   escape,
-  joinR(''),
+  join(''),
   map(trim),
   lines
 );
-
-//    join :: List String -> String
-const join = curry(function (separator, l) { return l.join(separator); });
 
 const main = pipe(
   ioToTask,
