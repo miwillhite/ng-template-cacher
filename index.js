@@ -35,7 +35,7 @@ const ioToTask = tryCatch(
   Task.rejected
 );
 
-//    getFileContents :: Task List String -> Task List String
+//    getFileContents :: List String -> Task List String
 const getFileContents = traverse(Task.of, readFile(__, 'utf-8'));
 
 //    wrapWithCachePuts :: String -> String
