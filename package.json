@@ -1,0 +1,21 @@
+{
+  "name": "ng-template-cacher",
+  "version": "0.0.1",
+  "description": "Take a list of html files and compile them to an angular template cache module.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matthew Willhite <matthew.willhite@gmail.com> (https://github.com/miwillhite)",
+  "license": "MIT",
+  "dependencies": {
+    "data.task": "^3.1.1",
+    "escape-quotes": "^1.0.2",
+    "fantasy-io": "0.0.1",
+    "futurize": "^1.1.0",
+    "immutable": "^3.8.1",
+    "immutable-ext": "^1.0.8",
+    "ramda": "^0.23.0",
+    "sanctuary": "^0.11.1"
+  }
+}
