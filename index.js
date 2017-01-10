@@ -1,4 +1,5 @@
 const fs = require('fs');
+const glob = require('glob');
 const Task = require('data.task');
 const futurize = require('futurize').futurize(Task);
 const IO = require('fantasy-io');
@@ -8,8 +9,6 @@ const { __
       , compose
       , curry
       , curryN
-      , drop
-      , identity
       , join: joinR
       , map
       , pipe
@@ -27,7 +26,7 @@ const escape = require('escape-quotes');
 
 //    getFileList :: IO List String
 const getFileList = new IO(function () {
-  return List(drop(2, process.argv));
+  return List(glob.sync(process.argv[2]));
 });
 
 //    ioToTask :: IO a -> Task a

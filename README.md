@@ -14,13 +14,13 @@ npm install
 ## Run
 
 ```bash
-node index.js a/path/to/some/files/*.html
+node index.js 'a/path/to/some/files/**/*.html'
 ```
 
 ## Working on it…
 
 * [x] Accept wildcard file names: `./fixtures/*.html`
-* [ ] Accept wildcard directory names: `./fixtures/**/*.html`
+* [x] Accept wildcard directory names: `./fixtures/**/*.html`
 * [ ] Validate argument input
 * [ ] Allow options for naming module, app refs, output etc.
 * [x] Wrap html templates in `$templateCache` syntax

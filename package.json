@@ -13,6 +13,7 @@
     "escape-quotes": "^1.0.2",
     "fantasy-io": "0.0.1",
     "futurize": "^1.1.0",
+    "glob": "^7.1.1",
     "immutable": "^3.8.1",
     "immutable-ext": "^1.0.8",
     "ramda": "^0.23.0",
