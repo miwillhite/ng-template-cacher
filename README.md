@@ -19,10 +19,11 @@ node index.js 'a/path/to/some/files/**/*.html'
 
 ```
 Generates an out.js file that looks like this (WIP):
-$templateCache.puts('<ul><li>Coming</li><li>From</li><li>Down</li><li>Below</li></ul>');
-$templateCache.puts('<div><h1 ng-if="greeting == \'hi\'">{{greeting}}!</h1></div>');
-$templateCache.puts('<span>Working?</span>');
-$templateCache.puts('Oh yes!!');
+
+$templateCache.puts('./fixtures/dir/templ3.html', '<ul><li>Coming</li><li>From</li><li>Down</li><li>Below</li></ul>');
+$templateCache.puts('./fixtures/tmpl.html', '<div><h1 ng-if="greeting == \'hi\'">{{greeting}}!</h1></div>');
+$templateCache.puts('./fixtures/tmpl1.html', '<span>Working?</span>');
+$templateCache.puts('./fixtures/tmpl2.html', 'Oh yes!!');
 ```
 
 ## Working on it…
