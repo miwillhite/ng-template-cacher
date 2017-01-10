@@ -42,14 +42,14 @@ const ioToTask = tryCatch(
   Task.rejected
 );
 
-//    getFileContents :: List String -> Task Map<String,String>
-const getFileContents = compose(
-  sequence(Task.of),
-  Map,
-  reduce((xs, name) => merge(xs, objOf(name, readFile(name, 'utf-8'))), {})
-)
+//    buildFileContentMap :: List String -> Object<String, String>
+const buildFileContentMap = reduce((xs, name) =>
+  merge(xs, objOf(name, readFile(name, 'utf-8'))), {});
 
-//    applyEntryTemplate :: Object<String, String> -> Object<String, String>
+//    mapFileContents :: List String -> Task Map<String,String>
+const mapFileContents = compose(sequence(Task.of), Map, buildFileContentMap);
+
+//    applyEntryTemplate :: String -> String -> Object<String, String>
 const applyEntryTemplate = function applyEntryTemplate(str, fileName) {
   return compose(
     s => `$templateCache.puts('${fileName}', '${s}');`,
@@ -65,7 +65,7 @@ const joinTemplates = compose(join('\n'), values);
 
 const main = pipe(
   ioToTask,
-  chain(getFileContents),
+  chain(mapFileContents),
   map(mapEntries(applyEntryTemplate)),
   map(joinTemplates),
   chain(writeFile('out.js'))
