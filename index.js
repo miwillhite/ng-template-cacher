@@ -32,7 +32,8 @@ const escape = require('escape-quotes');
 const mapEntries = curryN(2, (fn, o) => mapObjIndexed(fn, o.toObject()));
 
 
-const moduleTmpl = exprs => (
+//    moduleTmpl :: String -> String
+const moduleTmpl = exprs =>
 `(function () {
   'use strict';
   var module;
@@ -44,11 +45,11 @@ const moduleTmpl = exprs => (
   module.run(['$templateCache', function ($templateCache) {
     ${exprs}
   }]);
-}());
-`);
+}());`;
 
 //    cacheTmpl :: String -> String -> String
-const cacheTmpl = curry((path, html) => `$templateCache.puts('${path}', '${html}');`);
+const cacheTmpl = curry((path, html) =>
+  `$templateCache.puts('${path}', '${html}');`);
 
 //    getFileList :: IO List String
 const getFileList = new IO(function () {
