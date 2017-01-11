@@ -33,6 +33,6 @@ $templateCache.puts('./fixtures/tmpl2.html', 'Oh yes!!');
 * [ ] Validate argument input
 * [ ] Allow options for naming module, app refs, output etc.
 * [x] Wrap html templates in `$templateCache` syntax
-* [ ] Wrap output in angular module
+* [x] Wrap output in angular module
 * [x] Print output to file
 * [ ] Adding more items to this list
